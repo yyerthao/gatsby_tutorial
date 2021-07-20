@@ -5,20 +5,27 @@ export default class Movie extends React.Component {
     constructor(props){
         super(props);
 
-        this.state = {}
+        this.state = {
+            title: this.props.data.title
+        }
 
         this.handleClick = this.onClick.bind(this);
     }
 
-    onClick(){
-        alert("Hello")
+        onClick(){
+            // this toggles 
+            if (this.state.title === 'hayyyy') {
+                this.setState({title: 'ohhhhh'});
+                return;
+            }
+           this.setState({title: 'hayyyy'})
     }// end constructor
     
 
     render(){
         return(
             <div>
-                <h1>{this.props.data.title}</h1>
+                <h1>{this.state.title}</h1>
                 <button onClick={this.handleClick}>Click Me</button>
                 <p>{this.props.data.genre}</p>
                 <img src={this.props.data.image} alt={this.props.data.title}/>
